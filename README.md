@@ -55,10 +55,10 @@
 
 编写springmvc-servlet.xml
 
-	<beans xmlns="http://www.springframework.org/schema/beans"
+	<beans xmlns="http://www.springframework.org/schema/beans"      
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     		xmlns:mvc="http://www.springframework.org/schema/mvc"     
 		xmlns:context="http://www.springframework.org/schema/context"     
-		xsi:schemaLocation="http://www.springframework.org/schema/beans 
+		xsi:schemaLocation="http://www.springframework.org/schema/beans    
 			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
 			http://www.springframework.org/schema/mvc 
 			http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd 
@@ -89,8 +89,40 @@
 	
 	<servlet-mapping>
 		<servlet-name>springmvc</servlet-name>
-		<url-pattern>/**</url-pattern>
+		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+## 编写jsp与control类测试
+
+编写jsp表单
+
+	<form action="<%=request.getContextPath()%>/login">
+		<table>
+			<tr>
+				<td>用户名</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td>密码</td>
+				<td><input type="text"></td>
+			</tr>
+			<tr>
+				<td><input type = "submit" value = "submit"></td>
+			</tr>
+		</table>
+	</form>
+	
+编写control类
+
+	@Controller
+	public class UserController {
+		@RequestMapping("login")
+		public String login() {
+			return "index";
+		}
+	}
+
 	
 	
 
