@@ -56,9 +56,8 @@
 编写springmvc-servlet.xml
 
 	<beans xmlns="http://www.springframework.org/schema/beans"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 		xmlns:mvc="http://www.springframework.org/schema/mvc"
-		xmlns:context="http://www.springframework.org/schema/context"
-		xmlns:aop="http://www.springframework.org/schema/aop" 		xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"     		xmlns:mvc="http://www.springframework.org/schema/mvc"     
+		xmlns:context="http://www.springframework.org/schema/context"     
 		xsi:schemaLocation="http://www.springframework.org/schema/beans 
 			http://www.springframework.org/schema/beans/spring-beans-3.2.xsd 
 			http://www.springframework.org/schema/mvc 
@@ -75,4 +74,23 @@
 			<property name="prefix" value="/" />  
 			<property name="suffix" value=".jsp" />  
 		</bean>  
-	</beans>  
+	</beans>    
+	
+
+## 指定SpringMVC的入口程序（在web.xml中） 
+
+编写web.xml
+
+	<servlet>
+		<servlet-name>springmvc</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>springmvc</servlet-name>
+		<url-pattern>/**</url-pattern>
+	</servlet-mapping>
+	
+	
+
