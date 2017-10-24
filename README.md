@@ -1,5 +1,5 @@
-# spring    
-学习spring 搭建       
+# springMVC    
+学习springMVC 搭建       
 ## 从maven仓库导入spring相关包
 1、设置spring相关包版本
 
